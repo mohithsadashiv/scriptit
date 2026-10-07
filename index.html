@@ -1009,6 +1009,8 @@ window.addEventListener('keydown',e=>{const meta=e.ctrlKey||e.metaKey;if(meta&&e
 // expose command actions
 Object.assign(window,{newDocumentModal,homeModal,scriptalayModal,importDialog,exportPrompt,settingsModal,reportsModal,shortcutsModal,commandCenter,helpCenter,toggleTheme,openFind,splitScene:()=>splitScene(state.__active),mergeScene,renameLocation,renameCharacter,openBackups,openVault,noOp:()=>{}});
 selectedNote=state.notes[0]?.id||null;$('docTitle').value=state.meta.title;applyTheme();renderAll();
+/* start on the Home screen every time the app opens */
+setTimeout(()=>{try{homeModal()}catch(e){console.warn('Home screen failed',e)}},120);
 })();
 </script>
 </body>
